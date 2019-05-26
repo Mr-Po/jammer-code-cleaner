@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         论坛(BBS)帖子干扰码清除器
+// @name         干扰码清除器
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  清除论坛帖子文本中隐藏的干扰码，便于复制和阅读模式下阅读。
+// @description  清除网页中隐藏的干扰码，便于内容复制和阅读模式下阅读。
 // @author       Mr.Po
 // @match        http*://*/thread*
 // @match        http*://*/forum.php*
