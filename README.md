@@ -4,7 +4,7 @@
 油猴（Tampermonkey）脚本，用于清除网页中隐藏的干扰码，便于内容复制和阅读模式下阅读。
 可通过以下途径安装：
 
-[https://greasyfork.org/zh-CN/scripts/383143](https://greasyfork.org/zh-CN/scripts/383143)
+[https://greasyfork.org/zh-CN/scripts/383517](https://greasyfork.org/zh-CN/scripts/383517)
 
 
 * * *
