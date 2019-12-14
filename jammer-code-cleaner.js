@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         干扰码清除器
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  清除网页中隐藏的干扰码，便于内容复制和阅读模式下阅读。
 // @author       Mr.Po
 // @match        http*://*/thread*
 // @match        http*://*/forum.php*
+// @match        https://*/showpaperword?action=showbook&actmode=showpaper*
 // @require      http://code.jquery.com/jquery-1.11.0.min.js
 // ==/UserScript==
 
@@ -21,6 +22,10 @@
 
     function clean($array, i) {
 
+        if ($array == null) {
+            return;
+        }
+
         if (isDebug) {
 
             console.log("从第[" + (i + 1) + "]个解析器中，找到干扰：" + $array.length + "个。");
@@ -30,17 +35,29 @@
     }
 
     var jammerCodeResolver = $([
-        function() {
+        // 普通BBS论坛 - 样式干扰码
+        function(i) {
             return $(".jammer");
         },
-        function() {
+        // 普通BBS论坛 - 隐藏块干扰码
+        function(i) {
             return $("#postlist span[style=\"display:none\"]");
+        },
+        // 海棠文化小说站
+        function(i) {
+
+            $("#readpagewidth").on('DOMNodeInserted', function() {
+
+                clean($(this).find("font.OutStrRnds"), i);
+            });
+
+            return null;
         }
     ]);
 
     jammerCodeResolver.each(function(i, it) {
 
-        var $array = it();
+        var $array = it(i);
 
         clean($array, i);
     });
