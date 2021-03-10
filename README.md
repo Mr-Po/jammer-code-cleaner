@@ -35,4 +35,4 @@
 
 PS：网址中变化部分使用\*号代替，如：
 
-http://www.abc.com/p/123456，则为：http://www.abc.com/p/*
+`http://www.abc.com/p/123456`，则为：`http://www.abc.com/p/*`
